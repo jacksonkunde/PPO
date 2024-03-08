@@ -84,3 +84,15 @@ def make_env(env_id: str, seed: int, idx: int, capture_video: bool, run_name: st
         return env
     
     return thunk
+
+def prepare_atari_env(env: gym.Env):
+    env = NoopResetEnv(env, noop_max=30)
+    env = MaxAndSkipEnv(env, skip=4)
+    env = EpisodicLifeEnv(env)
+    if "FIRE" in env.unwrapped.get_action_meanings():
+        env = FireResetEnv(env)
+    env = ClipRewardEnv(env)
+    env = ResizeObservation(env, shape=(84, 84))
+    env = GrayScaleObservation(env)
+    env = FrameStack(env, num_stack=4)
+    return env
