@@ -4,7 +4,7 @@ from typing import Literal, Optional
 import numpy as np
 import torch as t
 import gym
-import atari_wrappers
+from atari_wrappers import NoopResetEnv, MaxAndSkipEnv, EpisodicLifeEnv, FireResetEnv, ClipRewardEnv, ResizeObservation, GrayScaleObservation, FrameStack
 
 
 @dataclass
