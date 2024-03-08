@@ -4,6 +4,7 @@ from typing import Literal, Optional
 import numpy as np
 import torch as t
 import gym
+import atari_wrappers
 
 
 @dataclass
