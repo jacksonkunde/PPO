@@ -4,8 +4,14 @@ from typing import Literal, Optional
 import numpy as np
 import torch as t
 import gym
-from atari_wrappers import NoopResetEnv, MaxAndSkipEnv, EpisodicLifeEnv, FireResetEnv, ClipRewardEnv, ResizeObservation, GrayScaleObservation, FrameStack
-
+from atari_wrappers import (NoopResetEnv, MaxAndSkipEnv, 
+                            EpisodicLifeEnv, FireResetEnv, 
+                            ClipRewardEnv)
+from gym.wrappers import (
+    FrameStack,
+    ResizeObservation,
+    GrayScaleObservation,
+)
 
 @dataclass
 class PPOArgs:
